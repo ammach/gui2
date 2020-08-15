@@ -1,11 +1,12 @@
 import React, { Fragment } from "react";
-import {Form } from "antd";
+import {Form} from "antd";
 import { StyledTitle } from "@components/title/StyledTitle";
 import { BoxSides } from "@components/box/BoxSides";
 import { useWindowSize } from "@hooks/window";
 import {login} from "@services/authService";
 import { useHistory } from "react-router-dom";
 import {FormItemInput} from '@components/form/formItemInput/FormItemInput';
+import {Form as ConfiguredForm} from "@components/form/Form";
 import { Button } from '@components/button/Button';
 
 import {
@@ -63,13 +64,9 @@ export function Login() {
     const titleWithForm = (
         <Fragment>
             <StyledTitle title1={HERO_TITLE1} title2={HERO_TITLE2} />
-            <Form
-                labelCol={{ span: 24 }}
-                wrapperCol={{ span: 24 }}
-                layout="vertical"
-                form={form}
+            <ConfiguredForm
                 name="login"
-                validateTrigger="onSubmit"
+                form={form}
                 onFinish={onFinish}
                 onFinishFailed={onFinishFailed}
             >
@@ -84,7 +81,7 @@ export function Login() {
                 <Form.Item className="login-submit">
                     <Button text={LOGIN} htmlType="submit" style={{float: 'right'}}/>
                 </Form.Item>
-            </Form>
+            </ConfiguredForm>
         </Fragment>
     );
 

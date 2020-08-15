@@ -1,6 +1,7 @@
 import React from 'react';
 import {withKnobs} from "@storybook/addon-knobs";
 import {Form, Button} from "antd";
+import {Form as ConfiguredForm} from "@components/form/Form";
 import {FormItemInputNumber} from '@components/form/formItemInputNumber/FormItemInputNumber';
 import "./stories.css";
 
@@ -18,12 +19,8 @@ const onFinish = (values) => {
 export const formItemInputNumber = () => {
     const [form] = Form.useForm();
 
-    return <Form
+    return <ConfiguredForm
         form={form}
-        layout="vertical"
-        validateTrigger="onSubmit"
-        labelCol={{span: 24}}
-        wrapperCol={{span: 24}}
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
     >
@@ -38,6 +35,6 @@ export const formItemInputNumber = () => {
                 Click here to see the error state
             </Button>
         </Form.Item>
-    </Form>;
+    </ConfiguredForm>;
 };
 

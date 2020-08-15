@@ -1,6 +1,7 @@
 import React from 'react';
 import {withKnobs} from "@storybook/addon-knobs";
 import {Form, Button} from "antd";
+import {Form as ConfiguredForm} from "@components/form/Form";
 import {FormItemInput} from '@components/form/formItemInput/FormItemInput';
 import { getColor } from "@utils/cssUtil";
 import "./stories.css";
@@ -30,11 +31,7 @@ const onFinish = (values) => {
 };
 
 export const formItemInput = () =>
-    <Form
-        layout="vertical"
-        validateTrigger="onSubmit"
-        labelCol={{span: 24}}
-        wrapperCol={{span: 24}}
+    <ConfiguredForm
         onFinishFailed={onFinishFailed}
         onFinish={onFinish}
     >
@@ -49,4 +46,4 @@ export const formItemInput = () =>
                 Click here to see the error state
             </Button>
         </Form.Item>
-    </Form>;
+    </ConfiguredForm>;
