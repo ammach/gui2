@@ -5,7 +5,7 @@ import { getColor } from "@utils/cssUtil";
 import "./formItem.css";
 
 export function FormItem(props) {
-    const { className, label, labelStyle = {}, name, tooltipTitle, rules, hasError } = props;
+    const { className, label, labelStyle = {}, name, tooltipTitle, rules } = props;
     const mainColor = getColor('--main-color');
     return (
         <Form.Item
@@ -22,7 +22,6 @@ export function FormItem(props) {
             }
             name={name}
             rules={rules}
-            help={hasError && tooltipTitle}
         >
             {props.children}
         </Form.Item>

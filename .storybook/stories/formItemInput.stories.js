@@ -9,6 +9,7 @@ import "./stories.css";
 export default {title: 'FormItemInput', decorators: [withKnobs]};
 
 const onFinishFailed = ({_, errorFields}) => {
+    console.log('failed');
     const errorColor = getColor('--error-color');
     const errorColorShade2 = getColor('--error-color-shade-2');
     errorFields.forEach(errors =>
@@ -24,6 +25,10 @@ const onFinishFailed = ({_, errorFields}) => {
     );
 };
 
+const onFinish = (values) => {
+    console.log('success', values);
+};
+
 export const formItemInput = () =>
     <Form
         layout="vertical"
@@ -31,6 +36,7 @@ export const formItemInput = () =>
         labelCol={{span: 24}}
         wrapperCol={{span: 24}}
         onFinishFailed={onFinishFailed}
+        onFinish={onFinish}
     >
         <FormItemInput
             name="without"

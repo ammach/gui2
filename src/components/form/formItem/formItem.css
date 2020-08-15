@@ -12,7 +12,7 @@
 }
 
 .ant-form-item-has-error .ant-form-item-explain,
-.ant-form-item-has-error .ant-form-item-split {
+.ant-form-item-has-error .ant-form-item-split, .ant-form-item-explain {
     text-align: left;
     color: var(--error-color);
 }
