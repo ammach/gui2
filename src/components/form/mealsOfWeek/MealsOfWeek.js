@@ -1,4 +1,5 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
+import {Radio} from "antd";
 import Icon from "@ant-design/icons";
 import {FormItem} from "@components/form/formItem/FormItem";
 import "./mealsOfWeek.css";
@@ -62,16 +63,28 @@ export default function MealsOfWeek({form, label, name, tooltipTitle}) {
     const [selectedOnThursday, setSelectedOnThursday] = useState();
     const [selectedOnFriday, setSelectedOnFriday] = useState();
 
+    useEffect(() => {
+        triggerChange();
+    }, [selectedOnMonday, selectedOnTuesday, selectedOnWednesday, selectedOnThursday, selectedOnFriday]);
+
+    const triggerChange = () => {
+        form.setFieldsValue({
+            [name]: {
+                monday: selectedOnMonday,
+                tuesday: selectedOnTuesday,
+                wednesday: selectedOnWednesday,
+                thursday: selectedOnThursday,
+                friday: selectedOnFriday
+            }
+        });
+    };
 
     const checkMeals = () => {
-        if (selectedOnMonday &&
-            selectedOnTuesday &&
-            selectedOnWednesday &&
-            selectedOnThursday &&
-            selectedOnFriday) {
-            return Promise.resolve();
+        const mealsOfWeek = form.getFieldValue(name);
+        if (Object.values(mealsOfWeek).includes(undefined)) {
+            return Promise.reject(tooltipTitle);
         }
-        return Promise.reject(tooltipTitle);
+        return Promise.resolve();
     };
 
     return (
@@ -99,43 +112,43 @@ export default function MealsOfWeek({form, label, name, tooltipTitle}) {
                         <MeatIcon/>
                     </td>
                     <td>
-                        <input
+                        <Radio
                             type="radio"
                             name="lundi"
-                            checked={selectedOnMonday === "meat-monday"}
-                            onChange={() => setSelectedOnMonday("meat-monday")}
+                            checked={selectedOnMonday === "meat"}
+                            onChange={() => setSelectedOnMonday("meat")}
                         />
                     </td>
                     <td>
-                        <input
+                        <Radio
                             type="radio"
                             name="mardi"
-                            checked={selectedOnTuesday === "meat-tuesday"}
-                            onChange={() => setSelectedOnTuesday("meat-tuesday")}
+                            checked={selectedOnTuesday === "meat"}
+                            onChange={() => setSelectedOnTuesday("meat")}
                         />
                     </td>
                     <td>
-                        <input
+                        <Radio
                             type="radio"
                             name="mercredi"
-                            checked={selectedOnWednesday === "meat-wednesday"}
-                            onChange={() => setSelectedOnWednesday("meat-wednesday")}
+                            checked={selectedOnWednesday === "meat"}
+                            onChange={() => setSelectedOnWednesday("meat")}
                         />
                     </td>
                     <td>
-                        <input
+                        <Radio
                             type="radio"
                             name="jeudi"
-                            checked={selectedOnThursday === "meat-thursday"}
-                            onChange={() => setSelectedOnThursday("meat-thursday")}
+                            checked={selectedOnThursday === "meat"}
+                            onChange={() => setSelectedOnThursday("meat")}
                         />
                     </td>
                     <td>
-                        <input
+                        <Radio
                             type="radio"
                             name="vendredi"
-                            checked={selectedOnFriday === "meat-friday"}
-                            onChange={() => setSelectedOnFriday("meat-friday")}
+                            checked={selectedOnFriday === "meat"}
+                            onChange={() => setSelectedOnFriday("meat")}
                         />
                     </td>
                 </tr>
@@ -144,43 +157,43 @@ export default function MealsOfWeek({form, label, name, tooltipTitle}) {
                         <ChickenIcon/>
                     </td>
                     <td>
-                        <input
+                        <Radio
                             type="radio"
                             name="lundi"
-                            checked={selectedOnMonday === "chicken-monday"}
-                            onChange={() => setSelectedOnMonday("chicken-monday")}
+                            checked={selectedOnMonday === "chicken"}
+                            onChange={() => setSelectedOnMonday("chicken")}
                         />
                     </td>
                     <td>
-                        <input
+                        <Radio
                             type="radio"
                             name="mardi"
-                            checked={selectedOnTuesday === "chicken-tuesday"}
-                            onChange={() => setSelectedOnTuesday("chicken-tuesday")}
+                            checked={selectedOnTuesday === "chicken"}
+                            onChange={() => setSelectedOnTuesday("chicken")}
                         />
                     </td>
                     <td>
-                        <input
+                        <Radio
                             type="radio"
                             name="mercredi"
-                            checked={selectedOnWednesday === "chicken-wednesday"}
-                            onChange={() => setSelectedOnWednesday("chicken-wednesday")}
+                            checked={selectedOnWednesday === "chicken"}
+                            onChange={() => setSelectedOnWednesday("chicken")}
                         />
                     </td>
                     <td>
-                        <input
+                        <Radio
                             type="radio"
                             name="jeudi"
-                            checked={selectedOnThursday === "chicken-thursday"}
-                            onChange={() => setSelectedOnThursday("chicken-thursday")}
+                            checked={selectedOnThursday === "chicken"}
+                            onChange={() => setSelectedOnThursday("chicken")}
                         />
                     </td>
                     <td>
-                        <input
+                        <Radio
                             type="radio"
                             name="vendredi"
-                            checked={selectedOnFriday === "chicken-friday"}
-                            onChange={() => setSelectedOnFriday("chicken-friday")}
+                            checked={selectedOnFriday === "chicken"}
+                            onChange={() => setSelectedOnFriday("chicken")}
                         />
                     </td>
                 </tr>
@@ -189,43 +202,43 @@ export default function MealsOfWeek({form, label, name, tooltipTitle}) {
                         <VegetablesIcon/>
                     </td>
                     <td>
-                        <input
+                        <Radio
                             type="radio"
                             name="lundi"
-                            checked={selectedOnMonday === "vegetables-monday"}
-                            onChange={() => setSelectedOnMonday("vegetables-monday")}
+                            checked={selectedOnMonday === "vegetables"}
+                            onChange={() => setSelectedOnMonday("vegetables")}
                         />
                     </td>
                     <td>
-                        <input
+                        <Radio
                             type="radio"
                             name="mardi"
-                            checked={selectedOnTuesday === "vegetables-tuesday"}
-                            onChange={() => setSelectedOnTuesday("vegetables-tuesday")}
+                            checked={selectedOnTuesday === "vegetables"}
+                            onChange={() => setSelectedOnTuesday("vegetables")}
                         />
                     </td>
                     <td>
-                        <input
+                        <Radio
                             type="radio"
                             name="mercredi"
-                            checked={selectedOnWednesday === "vegetables-wednesday"}
-                            onChange={() => setSelectedOnWednesday("vegetables-wednesday")}
+                            checked={selectedOnWednesday === "vegetables"}
+                            onChange={() => setSelectedOnWednesday("vegetables")}
                         />
                     </td>
                     <td>
-                        <input
+                        <Radio
                             type="radio"
                             name="jeudi"
-                            checked={selectedOnThursday === "vegetables-thursday"}
-                            onChange={() => setSelectedOnThursday("vegetables-thursday")}
+                            checked={selectedOnThursday === "vegetables"}
+                            onChange={() => setSelectedOnThursday("vegetables")}
                         />
                     </td>
                     <td>
-                        <input
+                        <Radio
                             type="radio"
                             name="vendredi"
-                            checked={selectedOnFriday === "vegetables-friday"}
-                            onChange={() => setSelectedOnFriday("vegetables-friday")}
+                            checked={selectedOnFriday === "vegetables"}
+                            onChange={() => setSelectedOnFriday("vegetables")}
                         />
                     </td>
                 </tr>

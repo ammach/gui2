@@ -4,24 +4,3 @@ td {
     color: white;
     font-weight: bold;
 }
-
-input[type="radio"] {
-    cursor: pointer;
-    -webkit-appearance: none;
-    background-color: transparent;
-    border: 1px solid #d7c378;
-    border-radius: 50%;
-    width: 100%;
-    display: inline-block;
-    position: relative;
-    width: 24px;
-    height: 24px;
-}
-
-input[type="radio"]:checked {
-    background: #d7c378;
-}
-
-input[type="radio"]:focus {
-    outline-width: 0px;
-}
