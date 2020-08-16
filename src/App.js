@@ -10,9 +10,33 @@ function App() {
     return (
         <BrowserRouter>
             <Route exact path="/login" component={() => !getCurrentUser() ? <LoginPage/> : <Redirect to="/home"/>} />
-            <Route exact path={["/", "/home"]} component={() => getCurrentUser() ? <HomePage/> : <Redirect to="/login"/>} />
-            <Route exact path="/intro" component={() => getCurrentUser() ? <IntroPage/> : <Redirect to="/login"/>} />
+            <PrivateRoute exact path={["/", "/home"]}>
+                <HomePage/>
+            </PrivateRoute>
+            <PrivateRoute exact path="/intro" >
+                <IntroPage/>
+            </PrivateRoute>
         </BrowserRouter>
+    );
+}
+
+function PrivateRoute({ children, ...rest }) {
+    return (
+        <Route
+            {...rest}
+            render={({ location }) =>
+                getCurrentUser() ? (
+                    children
+                ) : (
+                    <Redirect
+                        to={{
+                            pathname: "/login",
+                            state: { from: location }
+                        }}
+                    />
+                )
+            }
+        />
     );
 }
 
