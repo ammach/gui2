@@ -39,3 +39,11 @@
     margin-top: -16px;
     font-family: Source Sans Pro
 }
+
+.footer-navigation-details-container {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    top: 52px;
+    left: 0;
+}

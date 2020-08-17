@@ -69,6 +69,6 @@ export function IntroPage() {
             hideOverlay={() => setVisible(false)}
         />
         {content}
-        <FooterWithNavigation previous={NAVIGATION_HOME} next={NAVIGATION_PROFESSIONAL}/>
+        <FooterWithNavigation previous={{category: NAVIGATION_HOME, path: '/'}} next={{category: NAVIGATION_PROFESSIONAL, path: '/pro/step1'}} />
     </Fragment>)
 }
