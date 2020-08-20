@@ -1,6 +1,6 @@
 import React from 'react';
 import {withKnobs} from "@storybook/addon-knobs";
-import MealsOfWeek from "@components/form/mealsOfWeek/MealsOfWeek";
+import {MealsOfWeek} from "@components/form/mealsOfWeek/MealsOfWeek";
 import {Form as ConfiguredForm} from "@components/form/Form";
 import "./stories.css";
 import {Button, Form} from "antd";

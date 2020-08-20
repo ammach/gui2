@@ -56,7 +56,7 @@ const MeatIcon = () => <Icon component={MeatSvg}/>;
 const ChickenIcon = () => <Icon component={ChickenSvg}/>;
 const VegetablesIcon = () => <Icon component={VegetablesSvg}/>;
 
-export default function MealsOfWeek({form, label, name, tooltipTitle}) {
+export function MealsOfWeek({form, label, name, tooltipTitle}) {
     const [selectedOnMonday, setSelectedOnMonday] = useState();
     const [selectedOnTuesday, setSelectedOnTuesday] = useState();
     const [selectedOnWednesday, setSelectedOnWednesday] = useState();
@@ -114,7 +114,8 @@ export default function MealsOfWeek({form, label, name, tooltipTitle}) {
                     <td>
                         <Radio
                             type="radio"
-                            name="lundi"
+                            name="monday"
+                            data-label="monday-meat"
                             checked={selectedOnMonday === "meat"}
                             onChange={() => setSelectedOnMonday("meat")}
                         />
@@ -122,7 +123,8 @@ export default function MealsOfWeek({form, label, name, tooltipTitle}) {
                     <td>
                         <Radio
                             type="radio"
-                            name="mardi"
+                            name="tuesday"
+                            data-label="tuesday-meat"
                             checked={selectedOnTuesday === "meat"}
                             onChange={() => setSelectedOnTuesday("meat")}
                         />
@@ -130,7 +132,8 @@ export default function MealsOfWeek({form, label, name, tooltipTitle}) {
                     <td>
                         <Radio
                             type="radio"
-                            name="mercredi"
+                            name="wednesday"
+                            data-label="wednesday-meat"
                             checked={selectedOnWednesday === "meat"}
                             onChange={() => setSelectedOnWednesday("meat")}
                         />
@@ -138,7 +141,8 @@ export default function MealsOfWeek({form, label, name, tooltipTitle}) {
                     <td>
                         <Radio
                             type="radio"
-                            name="jeudi"
+                            name="thursday"
+                            data-label="thursday-meat"
                             checked={selectedOnThursday === "meat"}
                             onChange={() => setSelectedOnThursday("meat")}
                         />
@@ -146,7 +150,8 @@ export default function MealsOfWeek({form, label, name, tooltipTitle}) {
                     <td>
                         <Radio
                             type="radio"
-                            name="vendredi"
+                            name="friday"
+                            data-label="friday-meat"
                             checked={selectedOnFriday === "meat"}
                             onChange={() => setSelectedOnFriday("meat")}
                         />
@@ -159,7 +164,8 @@ export default function MealsOfWeek({form, label, name, tooltipTitle}) {
                     <td>
                         <Radio
                             type="radio"
-                            name="lundi"
+                            name="monday"
+                            data-label="monday-chicken"
                             checked={selectedOnMonday === "chicken"}
                             onChange={() => setSelectedOnMonday("chicken")}
                         />
@@ -167,7 +173,8 @@ export default function MealsOfWeek({form, label, name, tooltipTitle}) {
                     <td>
                         <Radio
                             type="radio"
-                            name="mardi"
+                            name="tuesday"
+                            data-label="tuesday-chicken"
                             checked={selectedOnTuesday === "chicken"}
                             onChange={() => setSelectedOnTuesday("chicken")}
                         />
@@ -175,7 +182,8 @@ export default function MealsOfWeek({form, label, name, tooltipTitle}) {
                     <td>
                         <Radio
                             type="radio"
-                            name="mercredi"
+                            name="wednesday"
+                            data-label="wednesday-chicken"
                             checked={selectedOnWednesday === "chicken"}
                             onChange={() => setSelectedOnWednesday("chicken")}
                         />
@@ -183,7 +191,8 @@ export default function MealsOfWeek({form, label, name, tooltipTitle}) {
                     <td>
                         <Radio
                             type="radio"
-                            name="jeudi"
+                            name="thursday"
+                            data-label="thursday-chicken"
                             checked={selectedOnThursday === "chicken"}
                             onChange={() => setSelectedOnThursday("chicken")}
                         />
@@ -191,7 +200,8 @@ export default function MealsOfWeek({form, label, name, tooltipTitle}) {
                     <td>
                         <Radio
                             type="radio"
-                            name="vendredi"
+                            name="friday"
+                            data-label="friday-chicken"
                             checked={selectedOnFriday === "chicken"}
                             onChange={() => setSelectedOnFriday("chicken")}
                         />
@@ -204,7 +214,8 @@ export default function MealsOfWeek({form, label, name, tooltipTitle}) {
                     <td>
                         <Radio
                             type="radio"
-                            name="lundi"
+                            name="monday"
+                            data-label="monday-vegetables"
                             checked={selectedOnMonday === "vegetables"}
                             onChange={() => setSelectedOnMonday("vegetables")}
                         />
@@ -212,7 +223,8 @@ export default function MealsOfWeek({form, label, name, tooltipTitle}) {
                     <td>
                         <Radio
                             type="radio"
-                            name="mardi"
+                            name="tuesday"
+                            data-label="tuesday-vegetables"
                             checked={selectedOnTuesday === "vegetables"}
                             onChange={() => setSelectedOnTuesday("vegetables")}
                         />
@@ -220,7 +232,8 @@ export default function MealsOfWeek({form, label, name, tooltipTitle}) {
                     <td>
                         <Radio
                             type="radio"
-                            name="mercredi"
+                            name="wednesday"
+                            data-label="wednesday-vegetables"
                             checked={selectedOnWednesday === "vegetables"}
                             onChange={() => setSelectedOnWednesday("vegetables")}
                         />
@@ -228,7 +241,8 @@ export default function MealsOfWeek({form, label, name, tooltipTitle}) {
                     <td>
                         <Radio
                             type="radio"
-                            name="jeudi"
+                            name="thursday"
+                            data-label="thursday-vegetables"
                             checked={selectedOnThursday === "vegetables"}
                             onChange={() => setSelectedOnThursday("vegetables")}
                         />
@@ -236,7 +250,8 @@ export default function MealsOfWeek({form, label, name, tooltipTitle}) {
                     <td>
                         <Radio
                             type="radio"
-                            name="vendredi"
+                            name="friday"
+                            data-label="friday-vegetables"
                             checked={selectedOnFriday === "vegetables"}
                             onChange={() => setSelectedOnFriday("vegetables")}
                         />

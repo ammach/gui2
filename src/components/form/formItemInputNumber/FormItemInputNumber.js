@@ -53,11 +53,11 @@ export function FormItemInputNumber({ form, name, label, tooltipTitle }) {
             ]}
         >
             <div style={containerStyle}>
-                <Button type="primary" shape="circle" onClick={decrement}>
+                <Button type="primary" shape="circle" onClick={decrement} data-label="decrement">
                     -
                 </Button>
                 <span style={numberStyle}>{number}</span>
-                <Button type="primary" shape="circle" onClick={increment}>
+                <Button type="primary" shape="circle" onClick={increment} data-label="increment">
                     +
                 </Button>
             </div>
