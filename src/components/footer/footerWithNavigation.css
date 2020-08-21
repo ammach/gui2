@@ -30,12 +30,14 @@
     float: left;
     margin-left: 5%;
     margin-top: -16px;
-    font-family: Source Sans Pro
+    font-family: Source Sans Pro;
+    color:white
 }
 
 .footer-navigation-right {
     float: right;
     margin-right: 5%;
     margin-top: -16px;
-    font-family: Source Sans Pro
+    font-family: Source Sans Pro;
+    color:white;
 }

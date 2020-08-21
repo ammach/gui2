@@ -1,0 +1,57 @@
+.ant-layout-header,
+.ant-layout-footer,
+.ant-layout-content {
+  background: var(--bg-color-shade-2);
+}
+
+.colorspan{
+  color :var(--bg-color-shade-2) ;
+}
+.colortitle{
+color: #d7c378;
+font-family: Paris2024;
+font-weight: 500;
+font-size: 25px;
+text-transform: uppercase;
+text-align:center;
+}
+.ant-steps-item-process>
+.ant-steps-item-container>
+.ant-steps-item-content>
+.ant-steps-item-description{
+
+  color:#707070
+}
+
+ .ant-steps-item-wait>
+.ant-steps-item-container>
+.ant-steps-item-content>
+.ant-steps-item-description{
+
+  color:#707070
+}
+.ant-steps-item-wait>
+.ant-steps-item-container>
+.ant-steps-item-content>
+.ant-steps-item-title {
+  color:#707070
+ }
+
+.text{
+  font-family: Paris2024;
+  font-style: normal;
+  font-weight: 400;
+ }
+
+ .card{
+  background-color: black;
+  height: 100%;
+  width: 90%;
+  padding: 10%;
+  margin-left: 5%;
+  margin-bottom: 5%;
+
+}
+.center{
+  text-align: center;
+}

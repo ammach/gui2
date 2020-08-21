@@ -20,10 +20,16 @@ import {
 } from "@utils/constants";
 import {Button as ButtonAntd} from "antd";
 import "./introPage.css";
+import { useHistory } from "react-router-dom"
 
 export function IntroPage() {
     const [isVisible, setVisible] = useState(false);
     const isMobile = useWindowSize();
+    const history = useHistory()
+
+    const onStart = () => {
+        history.push("/form")
+      }
 
     let content;
 
@@ -69,6 +75,7 @@ export function IntroPage() {
             hideOverlay={() => setVisible(false)}
         />
         {content}
-        <FooterWithNavigation previous={NAVIGATION_HOME} next={NAVIGATION_PROFESSIONAL}/>
+        <FooterWithNavigation previous={NAVIGATION_HOME} next={NAVIGATION_PROFESSIONAL}  form={onStart}>
+        </FooterWithNavigation>
     </Fragment>)
 }

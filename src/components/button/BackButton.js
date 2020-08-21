@@ -1,16 +1,18 @@
 import React from 'react';
-import { useHistory } from "react-router-dom";
 import { Button } from 'antd';
 import { ArrowLeftOutlined } from "@ant-design/icons";
 import './backButton.css';
 
-export function BackButton() {
 
-    const history = useHistory();
+export function BackButton({formprevious,current}) {
 
-    const onClick = () => {
-        history.push('/');
-    };
+    function goBack() {
+      if(current !== -1 && formprevious !== undefined) {
+        formprevious()
+      }else{
+        window.history.back();
+      }
+      }
 
-    return <Button className="back-btn" shape='circle' icon={<ArrowLeftOutlined />} onClick={onClick} />;
+    return <Button className="back-btn" shape='circle' icon={<ArrowLeftOutlined />} onClick={goBack}/>;
 }
