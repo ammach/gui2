@@ -2,12 +2,12 @@ import React from 'react';
 import {withKnobs} from "@storybook/addon-knobs";
 import {Form, Button} from "antd";
 import {Form as ConfiguredForm} from "@components/form/Form";
-import {FormItemNumber} from '@components/form/formItemNumber/FormItemNumber';
+import {FormItemInputNumber} from '@components/form/formItemInputNumber/FormItemInputNumber';
 import { getColor } from "@utils/cssUtil";
 import "./stories.css";
 
 
-export default {title: 'FormItemNumber', decorators: [withKnobs]};
+export default {title: 'FormItemInputNumber', decorators: [withKnobs]};
 
 const onFinishFailed = ({_, errorFields}) => {
     console.log('failed');
@@ -31,12 +31,12 @@ const onFinish = (values) => {
     console.log('success', values);
 };
 
-export const formItemNumber = () =>
+export const formItemInputNumber = () =>
     <ConfiguredForm
         onFinishFailed={onFinishFailed}
         onFinish={onFinish}
     >
-        <FormItemNumber
+        <FormItemInputNumber
             name="without"
             tooltipTitle="this is a tooltip"
             label="Label with toolitp"

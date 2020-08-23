@@ -3,9 +3,9 @@ import { findDOMNode } from "react-dom";
 import { InputNumber } from "antd";
 import { getColor } from "@utils/cssUtil";
 import { FormItem } from "@components/form/formItem/FormItem";
-import "./formItemNumber.css";
+import "./formItemInputNumber.css";
 
-export function FormItemNumber({ label, name, rules, tooltipTitle }) {
+export function FormItemInputNumber({ label, name, rules, tooltipTitle }) {
   const mainColor = getColor("--main-color");
   const inputRef = useRef();
   const [color, setColor] = useState(mainColor);
