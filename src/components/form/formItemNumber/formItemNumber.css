@@ -1,0 +1,15 @@
+.ant-input-number {
+  width: 100%;
+  background-color: var(--bg-color-shade-3);
+  border-color: 1px solid var(--main-color);
+  color: var(--main-color);
+  border-radius: 0;
+}
+
+.ant-input-number input {
+  text-align: center;
+}
+
+.ant-input-number:focus {
+  border-color: var(--main-color);
+}
