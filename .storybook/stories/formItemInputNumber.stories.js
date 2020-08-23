@@ -9,32 +9,14 @@ import "./stories.css";
 
 export default {title: 'FormItemInputNumber', decorators: [withKnobs]};
 
-const onFinishFailed = ({_, errorFields}) => {
-    console.log('failed');
-    const errorColor = getColor('--error-color');
-    const errorColorShade2 = getColor('--error-color-shade-2');
-    errorFields.forEach(errors =>
-        errors.name.forEach(error => {
-            const inputContainer = document.getElementById(error).parentNode
-                .parentNode;
-            inputContainer.style.backgroundColor = 'black';
-            inputContainer.style.borderColor = errorColor;
-            inputContainer.style.color = errorColor;
-            document.querySelector(
-                `[for="${error}"]`
-            ).firstElementChild.style.color = errorColorShade2;
-        })
-    );
-};
-
 const onFinish = (values) => {
     console.log('success', values);
 };
 
 export const formItemInputNumber = () =>
     <ConfiguredForm
-        onFinishFailed={onFinishFailed}
         onFinish={onFinish}
+        basicInputs={["without"]}
     >
         <FormItemInputNumber
             name="without"

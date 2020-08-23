@@ -18,7 +18,6 @@ import {
   IDENTIFIER_NOT_VALID,
 } from "@utils/constants";
 import { notify } from "@utils/notification";
-import { getColor } from "@utils/cssUtil";
 import "./login.css";
 
 export function Login() {
@@ -46,22 +45,6 @@ export function Login() {
       });
   };
 
-  const onFinishFailed = ({ _, errorFields }) => {
-    const errorColor = getColor("--error-color");
-    const errorColorShade2 = getColor("--error-color-shade-2");
-    errorFields.forEach((errors) =>
-      errors.name.forEach((error) => {
-        const inputContainer = document.getElementById(`login_${error}`);
-        inputContainer.style.backgroundColor = "black";
-        inputContainer.style.borderColor = errorColor;
-        inputContainer.style.color = errorColor;
-        document.querySelector(
-          `[for="login_${error}"]`
-        ).firstElementChild.style.color = errorColorShade2;
-      })
-    );
-  };
-
   const titleWithForm = (
     <Fragment>
       <StyledTitle title1={HERO_TITLE1} title2={HERO_TITLE2} />
@@ -69,7 +52,7 @@ export function Login() {
         name="login"
         form={form}
         onFinish={onFinish}
-        onFinishFailed={onFinishFailed}
+        basicInputs={["login_email"]}
       >
         <FormItemInput
           className="email-input"

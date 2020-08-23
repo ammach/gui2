@@ -1,7 +1,42 @@
 import React from "react";
 import { Form as FormAntd } from "antd";
+import { getColor } from "@utils/cssUtil";
 
-export function Form({ name, form, onFinish, onFinishFailed, children }) {
+export function Form({
+  name,
+  form,
+  onFinish,
+  onFinishFailed,
+  children,
+  basicInputs = [],
+}) {
+  const errorColor = getColor("--error-color");
+  const errorColorShade2 = getColor("--error-color-shade-2");
+
+  const onDefaultFinishFailed = ({ _, errorFields }) => {
+    if (onFinishFailed) {
+      onFinishFailed({ _, errorFields });
+    } else {
+      errorFields.forEach((errors) =>
+        errors.name.forEach((error) => {
+          if (basicInputs.includes(error)) {
+            setErrorStateForInput(error);
+          }
+        })
+      );
+    }
+  };
+
+  const setErrorStateForInput = (error) => {
+    const inputContainer = document.getElementById(error);
+    inputContainer.style.backgroundColor = "black";
+    inputContainer.style.borderColor = errorColor;
+    inputContainer.style.color = errorColor;
+    document.querySelector(
+      `[for="${error}"]`
+    ).firstElementChild.style.color = errorColorShade2;
+  };
+
   return (
     <FormAntd
       labelCol={{ span: 24 }}
@@ -11,7 +46,7 @@ export function Form({ name, form, onFinish, onFinishFailed, children }) {
       name={name}
       validateTrigger="onSubmit"
       onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
+      onFinishFailed={onDefaultFinishFailed}
     >
       {children}
     </FormAntd>
