@@ -1,6 +1,6 @@
 import React from "react";
 import { mount } from "cypress-react-unit-test";
-import { FormItemInputNumber } from "./FormItemInputNumber";
+import { FormItemCounter } from "./FormItemCounter";
 import { Button, Form } from "antd";
 import { Form as ConfiguredForm } from "../Form";
 
@@ -15,7 +15,7 @@ function NumbersForm({ onFinish, onFinishFailed }) {
       onFinish={onFinish}
       onFinishFailed={onFinishFailed}
     >
-      <FormItemInputNumber
+      <FormItemCounter
         form={form}
         name="peopleCount"
         label="people count"

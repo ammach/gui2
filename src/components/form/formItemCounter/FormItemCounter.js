@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button } from "antd";
 import { FormItem } from "@components/form/formItem/FormItem";
 
-export function FormItemInputNumber({ form, name, label, tooltipTitle }) {
+export function FormItemCounter({ form, name, label, tooltipTitle }) {
   const [number, setNumber] = useState(0);
 
   const triggerChange = (newValue) => {
