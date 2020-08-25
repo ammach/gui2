@@ -22,3 +22,12 @@ Cypress.Commands.add("chooseNumber", (number) => {
         cy.get('@incrementBtn').click();
     }
 });
+
+Cypress.Commands.add('selectOption', (selector, value) => {
+    cy.get(selector)
+        .click({force: true})
+        .then(() => {
+            cy.get(`.ant-select-item-option-content:contains(${value})`).click();
+        });
+
+});
