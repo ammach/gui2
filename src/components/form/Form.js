@@ -14,16 +14,15 @@ export function Form({
   const errorColorShade2 = getColor("--error-color-shade-2");
 
   const onDefaultFinishFailed = ({ _, errorFields }) => {
+    errorFields.forEach((errors) =>
+      errors.name.forEach((error) => {
+        if (basicInputs && basicInputs.includes(error)) {
+          setErrorStateForInput(error);
+        }
+      })
+    );
     if (onFinishFailed) {
       onFinishFailed({ _, errorFields });
-    } else {
-      errorFields.forEach((errors) =>
-        errors.name.forEach((error) => {
-          if (basicInputs.includes(error)) {
-            setErrorStateForInput(error);
-          }
-        })
-      );
     }
   };
 
