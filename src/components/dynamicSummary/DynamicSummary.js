@@ -1,10 +1,9 @@
 import React from "react";
 import { Steps } from "antd";
+import { getStatus } from "./status";
 import "./dynamicSummary.css";
 
 export function DynamicSummary({ category, current }) {
-  const STATUS = { WAIT: "wait", PROCESS: "process", FINISH: "finish" };
-
   const proItems = [
     {
       title: "Finished",
@@ -37,12 +36,6 @@ export function DynamicSummary({ category, current }) {
 
   const getCategoryItems = (category) => {
     return config[category];
-  };
-
-  const getStatus = (index, current) => {
-    if (index < current) return STATUS.FINISH;
-    else if (index === current) return STATUS.PROCESS;
-    else if (index > current || !current) return STATUS.WAIT;
   };
 
   return (
