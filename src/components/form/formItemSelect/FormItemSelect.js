@@ -12,6 +12,7 @@ export function FormItemSelect({
   className,
   tooltipTitle,
   options,
+  onChange,
 }) {
   const mainColor = getColor("--main-color");
   const [color, setColor] = useState(mainColor);
@@ -68,6 +69,7 @@ export function FormItemSelect({
         onFocus={onFocus}
         onBlur={onBlur}
         onSelect={onSelect}
+        onChange={onChange}
       >
         {options.map(({ text, value }, key) => (
           <Select.Option key={key} className="select-option" value={value}>

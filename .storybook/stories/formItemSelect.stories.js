@@ -24,7 +24,6 @@ export const formItemSelect = () => {
             name="without"
             tooltipTitle="this is a tooltip"
             label="Label with toolitp"
-            rules={[{required: true, message: "⚠ Please input your password!"}]}
             options={[{text: 'Jack', value: 'Jack'}, {text: 'Lucy', value: 'Lucy'}, {text: 'yiminghe', value: 'yiminghe'}]}
         />
         <Form.Item>
