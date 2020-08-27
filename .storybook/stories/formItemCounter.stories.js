@@ -3,6 +3,7 @@ import {withKnobs} from "@storybook/addon-knobs";
 import {Form, Button} from "antd";
 import {Form as ConfiguredForm} from "@components/form/Form";
 import {FormItemCounter} from '@components/form/formItemCounter/FormItemCounter';
+import {ReactComponent as Computer} from "@components/form/formItemCounter/computer.svg";
 import "./stories.css";
 
 
@@ -27,8 +28,9 @@ export const formItemCounter = () => {
         <FormItemCounter
             form={form}
             name="peopleCount"
-            label="people count"
+            label="Nombre d’ordinateurs portables professionnels mis à votre disposition"
             tooltipTitle="this is a tooltip"
+            icon={<Computer/>}
         />
         <Form.Item>
             <Button type="primary" htmlType="submit">

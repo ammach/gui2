@@ -3,6 +3,7 @@ import { mount } from "cypress-react-unit-test";
 import { FormItemCounter } from "./FormItemCounter";
 import { Button, Form } from "antd";
 import { Form as ConfiguredForm } from "../Form";
+import { ReactComponent as Computer } from "@components/form/formItemCounter/computer.svg";
 
 const errorMsg = "this is a tooltip";
 
@@ -20,6 +21,7 @@ function NumbersForm({ onFinish, onFinishFailed }) {
         name="peopleCount"
         label="people count"
         tooltipTitle="this is a tooltip"
+        icon={<Computer />}
       />
       <Form.Item>
         <Button type="primary" htmlType="submit">
