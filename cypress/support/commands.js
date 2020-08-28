@@ -31,3 +31,7 @@ Cypress.Commands.add('selectOption', (selector, value) => {
         });
 
 });
+
+Cypress.Commands.add('typeNumber', (questions) => {
+    questions.forEach(({name, value}) => cy.get(`#${name}`).clear().type(`${value}`));
+});

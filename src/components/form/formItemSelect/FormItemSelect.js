@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Select } from "antd";
 import { getColor } from "@utils/cssUtil";
 import { FormItem } from "@components/form/formItem/FormItem";
-import "./formItemSelect.css";
 import { findDOMNode } from "react-dom";
+import "./formItemSelect.css";
 
 export function FormItemSelect({
   form,
