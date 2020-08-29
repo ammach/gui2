@@ -70,7 +70,7 @@ export function IntroPage() {
       {content}
       <FooterWithNavigation
         previous={{ category: NAVIGATION_HOME, path: "/" }}
-        next={{ category: NAVIGATION_PROFESSIONAL, path: "/pro/step1" }}
+        next={{ category: NAVIGATION_PROFESSIONAL, path: "/form" }}
       />
     </Fragment>
   );

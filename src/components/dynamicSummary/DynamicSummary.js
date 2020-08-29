@@ -42,6 +42,7 @@ export function DynamicSummary({ category, current }) {
     <Steps progressDot direction="vertical">
       {getCategoryItems(category).map(({ title, description }, index) => (
         <Steps.Step
+          key={index}
           title={title}
           description={description}
           status={getStatus(index, current)}

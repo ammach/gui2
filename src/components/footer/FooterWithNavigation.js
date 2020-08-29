@@ -3,42 +3,28 @@ import { ArrowRightOutlined } from "@ant-design/icons";
 import { Footer } from "@components/footer/Footer";
 import { Button } from "@components/button/Button";
 import { BackButton } from "@components/button/BackButton";
-import { useHistory } from "react-router-dom";
 import "./footerWithNavigation.css";
 
-export function FooterWithNavigation({ previous, next }) {
+export function FooterWithNavigation({ previous, next, step }) {
   const {
     category: previousCategory,
     details: previousDetails = "",
-    path: previousPath,
+    onClick: onPreviousClick,
   } = previous;
-  const {
-    category: nextCategory,
-    details: nextDetails = "",
-    path: nextPath,
-  } = next;
-
-  const history = useHistory();
-
-  const handlePreviousClick = () => {
-    history.push(previousPath);
-  };
-
-  const handleNextClick = () => {
-    history.push(nextPath);
-  };
+  const { category: nextCategory, details: nextDetails = "" } = next;
 
   return (
     <Footer>
       <div className="footer-buttons-container">
         <div className="footer-buttons-left">
-          <BackButton onClick={handlePreviousClick} />
+          <BackButton onClick={onPreviousClick} />
         </div>
         <div className="footer-buttons-right">
           <Button
+            htmlType="submit"
+            form={step}
             text="suite"
             icon={() => <ArrowRightOutlined />}
-            onClick={handleNextClick}
           />
         </div>
       </div>

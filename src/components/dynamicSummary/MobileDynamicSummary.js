@@ -9,7 +9,7 @@ export function MobileDynamicSummary({ size, current }) {
   return (
     <Steps progressDot>
       {steps.map((_, index) => (
-        <Steps.Step status={getStatus(index, current)} />
+        <Steps.Step key={index} status={getStatus(index, current)} />
       ))}
     </Steps>
   );
