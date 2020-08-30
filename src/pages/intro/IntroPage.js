@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from "react";
+import { useHistory } from "react-router-dom";
 import { InfoOutlined } from "@ant-design/icons";
 import { Header } from "@components/header/Header";
 import { BoxSides } from "@components/box/BoxSides";
@@ -23,6 +24,7 @@ import "./introPage.css";
 
 export function IntroPage() {
   const [isVisible, setVisible] = useState(false);
+  const history = useHistory();
   const isMobile = useWindowSize();
 
   let content;
@@ -69,8 +71,14 @@ export function IntroPage() {
       />
       {content}
       <FooterWithNavigation
-        previous={{ category: NAVIGATION_HOME, path: "/" }}
-        next={{ category: NAVIGATION_PROFESSIONAL, path: "/form" }}
+        previous={{
+          category: NAVIGATION_HOME,
+          onClick: () => history.push("/"),
+        }}
+        next={{
+          category: NAVIGATION_PROFESSIONAL,
+          onClick: () => history.push("/form"),
+        }}
       />
     </Fragment>
   );

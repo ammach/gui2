@@ -12,6 +12,7 @@ export const config = {
   0: {
     component: ProStep1,
     category: CATEGORY.PRO,
+    progress: 0,
     previous: {
       category: "introduction",
       details: "",
@@ -24,6 +25,7 @@ export const config = {
   1: {
     component: ProStep2,
     category: CATEGORY.PRO,
+    progress: 1,
     previous: {
       category: CATEGORY.PRO,
       details: "introduction",
@@ -36,6 +38,7 @@ export const config = {
   2: {
     component: PersoStep1,
     category: CATEGORY.PERSO,
+    progress: 0,
     previous: {
       category: CATEGORY.PERSO,
       details: "details1",
@@ -48,6 +51,7 @@ export const config = {
   3: {
     component: PersoStep2,
     category: CATEGORY.PERSO,
+    progress: 1,
     previous: {
       category: CATEGORY.PERSO,
       details: "details2",

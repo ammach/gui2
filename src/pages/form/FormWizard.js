@@ -1,4 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import { useWindowSize } from "@hooks/window";
 import { Header } from "@components/header/Header";
 import { BoxSides } from "@components/box/BoxSides";
@@ -9,6 +10,7 @@ import { config } from "./formConfig";
 
 export function FormWizard() {
   const isMobile = useWindowSize();
+  const history = useHistory();
   const [activeStep, setActiveStep] = useState(0);
 
   useEffect(() => {
@@ -23,13 +25,15 @@ export function FormWizard() {
     setActiveStep(activeStep - 1);
   };
 
-  const { component: FormStep, category, previous, next } = config[activeStep];
+  const { component: FormStep, progress, category, previous, next } = config[
+    activeStep
+  ];
   let content;
 
   if (isMobile) {
     content = (
       <div style={{ width: "100%" }}>
-        <MobileDynamicSummary size={5} current={activeStep} />
+        <MobileDynamicSummary size={5} current={progress} />
         <FormStep step={activeStep} setNextStep={setNextStep} />
       </div>
     );
@@ -38,7 +42,7 @@ export function FormWizard() {
       <BoxSides
         left={
           <div style={{ position: "fixed" }}>
-            <DynamicSummary category="pro" current={activeStep} />
+            <DynamicSummary category="pro" current={progress} />
           </div>
         }
         right={
@@ -60,7 +64,10 @@ export function FormWizard() {
         previous={{
           category: previous.category,
           details: previous.details,
-          onClick: handlePreviousStep,
+          onClick:
+            activeStep === 0
+              ? () => history.push("/intro")
+              : handlePreviousStep,
         }}
         next={{ category: next.category, details: next.details }}
         step={activeStep}
