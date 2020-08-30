@@ -11,7 +11,11 @@ export function FooterWithNavigation({ previous, next, step }) {
     details: previousDetails = "",
     onClick: onPreviousClick,
   } = previous;
-  const { category: nextCategory, details: nextDetails = "" } = next;
+  const {
+    category: nextCategory,
+    details: nextDetails = "",
+    onClick: onNextClick,
+  } = next;
 
   return (
     <Footer>
@@ -21,7 +25,8 @@ export function FooterWithNavigation({ previous, next, step }) {
         </div>
         <div className="footer-buttons-right">
           <Button
-            htmlType="submit"
+            {...(!onNextClick && { htmlType: "submit" })}
+            onClick={onNextClick}
             form={step}
             text="suite"
             icon={() => <ArrowRightOutlined />}
