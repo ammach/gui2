@@ -60,7 +60,13 @@ export function FormWizard() {
           </div>
         }
         right={
-          <div style={{ backgroundColor: "green" }}>
+          <div
+            style={{
+              position: "absolute",
+              width: "100%",
+              backgroundColor: "green",
+            }}
+          >
             <div style={{ height: "1000px", backgroundColor: "yellow" }}>
               <FormStep step={activeStep} setNextStep={setNextStep} />
             </div>

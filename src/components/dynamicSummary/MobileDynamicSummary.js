@@ -1,5 +1,4 @@
 import React from "react";
-import { Steps } from "antd";
 import { getStatus } from "./status";
 import "./mobileDynamicSummary.css";
 
@@ -7,10 +6,24 @@ export function MobileDynamicSummary({ size, current }) {
   const steps = [...Array(size).keys()];
 
   return (
-    <Steps progressDot>
-      {steps.map((_, index) => (
-        <Steps.Step key={index} status={getStatus(index, current)} />
-      ))}
-    </Steps>
+    <div className="mobile-dynamic-summary-container">
+      {steps.map((_, index) => {
+        const flexGrowValue = steps[index + 1] ? 1 : 0;
+        return (
+          <div key={index} style={{ flexGrow: flexGrowValue }}>
+            <div
+              data-status={getStatus(index, current)}
+              className="mobile-dynamic-summary-icon"
+            />
+            {steps[index + 1] && (
+              <div
+                data-status={getStatus(index, current)}
+                className="mobile-dynamic-summary-tail"
+              />
+            )}
+          </div>
+        );
+      })}
+    </div>
   );
 }
