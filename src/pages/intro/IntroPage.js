@@ -55,6 +55,13 @@ export function IntroPage() {
   return (
     <Fragment>
       <Header>
+        <img
+          className="logo"
+          src="/images/paris-2024.png"
+          alt="paris-2024"
+          width="260px"
+          height="132px"
+        />
         <ButtonAntd
           className="show-modal-btn"
           type="primary"
