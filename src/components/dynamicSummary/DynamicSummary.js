@@ -3,44 +3,10 @@ import { Steps } from "antd";
 import { getStatus } from "./status";
 import "./dynamicSummary.css";
 
-export function DynamicSummary({ category, current }) {
-  const proItems = [
-    {
-      title: "Finished",
-      description: "This is a description. This is a description.",
-    },
-    {
-      title: "Current",
-      description: "This is a description. This is a description.",
-    },
-    {
-      title: "Waiting",
-      description: "This is a description. This is a description.",
-    },
-    {
-      title: "Waiting",
-      description: "This is a description. This is a description.",
-    },
-    {
-      title: "Waiting",
-      description: "This is a description. This is a description.",
-    },
-  ];
-
-  const persoItems = [];
-
-  const config = {
-    pro: proItems,
-    perso: persoItems,
-  };
-
-  const getCategoryItems = (category) => {
-    return config[category];
-  };
-
+export function DynamicSummary({ items, current }) {
   return (
     <Steps progressDot direction="vertical">
-      {getCategoryItems(category).map(({ title, description }, index) => (
+      {items.map(({ title, description }, index) => (
         <Steps.Step
           key={index}
           title={title}

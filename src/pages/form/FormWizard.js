@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useWindowSize } from "@hooks/window";
+import { getCategoryItems } from "@utils/category";
 import { Header } from "@components/header/Header";
 import { BoxSides } from "@components/box/BoxSides";
 import { DynamicSummary } from "@components/dynamicSummary/DynamicSummary";
@@ -28,12 +29,13 @@ export function FormWizard() {
   const { component: FormStep, progress, category, previous, next } = config[
     activeStep
   ];
+  const summaryItems = getCategoryItems(category);
   let content;
 
   if (isMobile) {
     content = (
       <div style={{ width: "100%" }}>
-        <MobileDynamicSummary size={5} current={progress} />
+        <MobileDynamicSummary size={summaryItems.length} current={progress} />
         <FormStep step={activeStep} setNextStep={setNextStep} />
       </div>
     );
@@ -42,7 +44,7 @@ export function FormWizard() {
       <BoxSides
         left={
           <div style={{ position: "fixed" }}>
-            <DynamicSummary category="pro" current={progress} />
+            <DynamicSummary items={summaryItems} current={progress} />
           </div>
         }
         right={

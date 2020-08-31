@@ -77,6 +77,7 @@ export function IntroPage() {
         }}
         next={{
           category: NAVIGATION_PROFESSIONAL,
+          details: "Au bureau",
           onClick: () => history.push("/form"),
         }}
       />

@@ -1,12 +1,8 @@
+import { CATEGORY } from "@utils/category";
 import { ProStep1 } from "./pro/step1/ProStep1";
 import { ProStep2 } from "./pro/step2/ProStep2";
 import { PersoStep1 } from "./perso/step1/PersoStep1";
 import { PersoStep2 } from "./perso/step2/PersoStep2";
-
-const CATEGORY = {
-  PRO: "vie professionnelle",
-  PERSO: "vie personnelle",
-};
 
 export const config = {
   0: {
@@ -19,7 +15,7 @@ export const config = {
     },
     next: {
       category: CATEGORY.PRO,
-      details: "au bureau",
+      details: "Empreinte numérique",
     },
   },
   1: {
@@ -28,11 +24,11 @@ export const config = {
     progress: 1,
     previous: {
       category: CATEGORY.PRO,
-      details: "introduction",
+      details: "Au bureau",
     },
     next: {
       category: CATEGORY.PRO,
-      details: "numérique",
+      details: "Restauration",
     },
   },
   2: {
@@ -40,12 +36,12 @@ export const config = {
     category: CATEGORY.PERSO,
     progress: 0,
     previous: {
-      category: CATEGORY.PERSO,
-      details: "details1",
+      category: CATEGORY.PRO,
+      details: "Déplacements",
     },
     next: {
       category: CATEGORY.PERSO,
-      details: "details2",
+      details: "Equipement du logement",
     },
   },
   3: {
@@ -54,11 +50,11 @@ export const config = {
     progress: 1,
     previous: {
       category: CATEGORY.PERSO,
-      details: "details2",
+      details: "A la maison",
     },
     next: {
       category: CATEGORY.PERSO,
-      details: "details3",
+      details: "Biens matériels",
     },
   },
 };
