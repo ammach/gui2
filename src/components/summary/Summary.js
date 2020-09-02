@@ -12,7 +12,7 @@ import "./summary.css";
 
 export function Summary() {
   return (
-    <Steps current={100} direction="vertical">
+    <Steps className="summary" current={100} direction="vertical">
       <Steps.Step
         key={0}
         icon={<ProSvg />}

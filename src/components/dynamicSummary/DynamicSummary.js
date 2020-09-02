@@ -5,7 +5,7 @@ import "./dynamicSummary.css";
 
 export function DynamicSummary({ items, current }) {
   return (
-    <Steps progressDot direction="vertical">
+    <Steps className="dynamic-summary" progressDot direction="vertical">
       {items.map(({ title, description }, index) => (
         <Steps.Step
           key={index}

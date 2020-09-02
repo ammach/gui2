@@ -1,4 +1,4 @@
-const proItems = [
+export const proItems = [
   {
     title: "Au bureau",
     description: "X questions",
@@ -21,7 +21,7 @@ const proItems = [
   },
 ];
 
-const persoItems = [
+export const persoItems = [
   {
     title: "A la maison",
     description: "X questions",
