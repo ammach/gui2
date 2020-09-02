@@ -55,8 +55,13 @@ export function FormWizard() {
     content = (
       <BoxSides
         left={
-          <div style={{ position: "fixed" }}>
-            <DynamicSummary items={summaryItems} current={progress} />
+          <div style={{ position: "fixed", marginTop: "60px" }}>
+            <div style={{ float: "left" }}>
+              <div>les questions</div>
+            </div>
+            <div style={{ float: "left" }}>
+              <DynamicSummary items={summaryItems} current={progress} />
+            </div>
           </div>
         }
         right={
@@ -67,7 +72,7 @@ export function FormWizard() {
               backgroundColor: "green",
             }}
           >
-            <div style={{ height: "1000px", backgroundColor: "yellow" }}>
+            <div style={{ height: "1000px", backgroundColor: "black" }}>
               <FormStep step={activeStep} setNextStep={setNextStep} />
             </div>
           </div>
