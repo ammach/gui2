@@ -33,7 +33,11 @@ export function HeaderWithCategory({ title1, title2 }) {
           icon={<InfoOutlined />}
           onClick={() => setVisible(true)}
         />
-        <StyledTitle title1={title1} title2={title2} />
+        <StyledTitle
+          className="styled-title-form"
+          title1={title1}
+          title2={title2}
+        />
       </Header>
       <Modal
         title={ABOUT_TITLE}

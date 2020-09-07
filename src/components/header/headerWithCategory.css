@@ -13,3 +13,17 @@
   color: var(--main-color);
   font-family: Paris2024;
 }
+
+.styled-title-form {
+  margin-top: 100px;
+  font-size: 3vw;
+  line-height: 2.5vw;
+}
+
+@media (max-width: 767px) {
+  .styled-title-form {
+    /*margin-bottom: 30px;*/
+    font-size: 9vw;
+    line-height: 7.5vw;
+  }
+}
