@@ -29,7 +29,7 @@ export function FooterWithNavigation({ previous, next, step }) {
             onClick={onNextClick}
             form={step}
             text="suite"
-            icon={() => <ArrowRightOutlined />}
+            icon={<ArrowRightOutlined />}
           />
         </div>
       </div>
