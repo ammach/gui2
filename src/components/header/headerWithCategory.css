@@ -1,0 +1,15 @@
+.show-modal-btn {
+  position: fixed;
+  top: 8px;
+  right: 8px;
+  color: black;
+  z-index: 1000;
+}
+
+.home-link {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  color: var(--main-color);
+  font-family: Paris2024;
+}
