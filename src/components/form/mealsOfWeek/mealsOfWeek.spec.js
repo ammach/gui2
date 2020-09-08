@@ -3,12 +3,29 @@ import { mount } from "cypress-react-unit-test";
 import { MealsOfWeek } from "./MealsOfWeek";
 import { Button, Form } from "antd";
 import { Form as ConfiguredForm } from "../Form";
+import { ReactComponent as MeatSvg } from "@components/form/mealsOfWeek/meat.svg";
+import { ReactComponent as ChickenSvg } from "@components/form/mealsOfWeek/chicken.svg";
+import { ReactComponent as VegetablesSvg } from "@components/form/mealsOfWeek/vegetables.svg";
 
 const errorMsg = "plz fill meals of all days";
 
 function MealsForm({ onFinish, onFinishFailed }) {
   const [form] = Form.useForm();
 
+  const questions = [
+    {
+      name: "meat",
+      icon: MeatSvg,
+    },
+    {
+      name: "chicken",
+      icon: ChickenSvg,
+    },
+    {
+      name: "vegetables",
+      icon: VegetablesSvg,
+    },
+  ];
   return (
     <ConfiguredForm
       form={form}
@@ -18,6 +35,7 @@ function MealsForm({ onFinish, onFinishFailed }) {
       <MealsOfWeek
         form={form}
         name="meals"
+        questions={questions}
         label="meals of week"
         tooltipTitle="plz fill meals of all days"
       />
