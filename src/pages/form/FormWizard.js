@@ -8,6 +8,7 @@ import { MobileDynamicSummary } from "@components/dynamicSummary/MobileDynamicSu
 import { HeaderWithCategory } from "@components/header/HeaderWithCategory";
 import { FooterWithNavigation } from "@components/footer/FooterWithNavigation";
 import { config } from "./formConfig";
+import "./formWizard.css";
 
 export function FormWizard() {
   const isMobile = useWindowSize();
@@ -43,12 +44,29 @@ export function FormWizard() {
     content = (
       <BoxSides
         left={
-          <div style={{ position: "fixed", marginTop: "60px" }}>
-            <div style={{ float: "left" }}>
-              <div>les questions</div>
-            </div>
-            <div style={{ float: "left" }}>
+          <div style={{ position: "fixed", width: "40%", marginTop: "60px" }}>
+            <div style={{ float: "right", width: "50%" }}>
               <DynamicSummary items={summaryItems} current={progress} />
+            </div>
+            <div
+              style={{
+                float: "right",
+                width: "40%",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-start",
+              }}
+            >
+              <div className="form-questions-title">
+                <div>les</div>
+                <div>questions</div>
+              </div>
+              <img
+                src="/images/questions.png"
+                alt="questions"
+                width="84px"
+                height="84px"
+              />
             </div>
           </div>
         }
